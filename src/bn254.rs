@@ -164,6 +164,7 @@ pub fn alt_bn128_g1_compress(point: &[u8; 64]) -> Result<[u8; 32], Groth16Error>
             pinocchio::syscalls::sol_alt_bn128_compression(
                 ALT_BN128_G1_COMPRESS,
                 point.as_ptr(),
+                point.len() as u64,
                 result.as_mut_ptr(),
             )
         };
@@ -198,6 +199,7 @@ pub fn alt_bn128_g1_decompress(compressed: &[u8; 32]) -> Result<[u8; 64], Groth1
             pinocchio::syscalls::sol_alt_bn128_compression(
                 ALT_BN128_G1_DECOMPRESS,
                 compressed.as_ptr(),
+                compressed.len() as u64,
                 result.as_mut_ptr(),
             )
         };
@@ -232,6 +234,7 @@ pub fn alt_bn128_g2_compress(point: &[u8; 128]) -> Result<[u8; 64], Groth16Error
             pinocchio::syscalls::sol_alt_bn128_compression(
                 ALT_BN128_G2_COMPRESS,
                 point.as_ptr(),
+                point.len() as u64,
                 result.as_mut_ptr(),
             )
         };
@@ -266,6 +269,7 @@ pub fn alt_bn128_g2_decompress(compressed: &[u8; 64]) -> Result<[u8; 128], Groth
             pinocchio::syscalls::sol_alt_bn128_compression(
                 ALT_BN128_G2_DECOMPRESS,
                 compressed.as_ptr(),
+                compressed.len() as u64,
                 result.as_mut_ptr(),
             )
         };
